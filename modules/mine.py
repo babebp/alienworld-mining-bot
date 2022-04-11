@@ -17,17 +17,31 @@ class AlienWorld:
         self.driver.add_cookie({"name": "session_token", "value": f"{session}"})
         self.driver.get("https://play.alienworlds.io/")
 
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[3]/div/div[1]/div/div/div")))
+        self.driver.find_element(by=By.XPATH, value='/html/body/div/div[3]/div/div[1]/div/div/div').click()
+
+
     def approve(self):
         try:
             time.sleep(5)
             self.driver.switch_to.window(self.driver.window_handles[1])
             WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/section/div[2]/div/div[5]/button/div")))
             self.driver.find_element(by=By.XPATH, value='/html/body/div/div/section/div[2]/div/div[5]/button/div').click()
-            cprint(f'({datetime.now().strftime("%H:%M:%S")}) Approve Success', 'white', on_color='on_green')
+            cprint(f'({datetime.now().strftime("%H:%M:%S")}) Approve Success', 'green')
             self.driver.switch_to.window(self.driver.window_handles[0])
 
         except:
             self.driver.switch_to.window(self.driver.window_handles[1])
             self.driver.close()
             self.driver.switch_to.window(self.driver.window_handles[0])
-            cprint(f'({datetime.now().strftime("%H:%M:%S")}) Cant Approve', 'white', on_color='on_red')
+            cprint(f'({datetime.now().strftime("%H:%M:%S")}) Cant Approve', 'red')
+
+    def click_mine(self):
+
+        # Click Mine
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/div/span")))
+        self.driver.find_element(by=By.XPATH, value='/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/div/span').click()
+
+        # Click Claim Mine
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/span")))
+        self.driver.find_element(by=By.XPATH, value='/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/span').click()
