@@ -1,15 +1,19 @@
 import pickle
+from ssl import Options
 import time
 from datetime import datetime
 from termcolor import cprint
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 class AlienWorld:
+    options = webdriver.ChromeOptions()
+    options.add_extension()
     def __init__(self, ):
-        self.driver = webdriver.Chrome(executable_path=r"C:\Users\user\Projects\main_project\aw_bot\chromedriver.exe")
+        self.driver = webdriver.Chrome(executable_path=r"C:\Users\user\Projects\main_project\aw_bot_\chromedriver.exe")
         
     def login(self, session):    
         self.driver.get("https://all-access.wax.io/")
@@ -42,6 +46,7 @@ class AlienWorld:
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/div/span")))
         self.driver.find_element(by=By.XPATH, value='/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/div/span').click()
 
+        time.sleep(5)
         # Click Claim Mine
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/span")))
         self.driver.find_element(by=By.XPATH, value='/html/body/div[1]/div[3]/div[2]/div[1]/div/div/div[2]/div/div/div[4]/div[3]/div[2]/div[2]/div/div/div/div/div/span').click()
