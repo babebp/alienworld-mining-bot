@@ -9,5 +9,8 @@ class AlienWorld:
     def login(self, session):    
         self.driver.get("https://all-access.wax.io/")
         time.sleep(10)
-        self.driver.add_cookie({"name":"session_token","value":f"{session}"})
+        self.driver.add_cookie({"name": "session_token", "value": f"{session}"})
         self.driver.get("https://play.alienworlds.io/")
+
+    def approve(self):
+        pass
