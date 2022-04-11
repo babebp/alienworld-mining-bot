@@ -2,4 +2,5 @@ from modules.mine import AlienWorld
 
 if __name__ == "__main__":
     alien = AlienWorld()
-    alien.login('XrWgdS2YrTHTcNQbTUw3eRjlAKNQNXZoOPthzDiu')
+    session_token = input('Enter Session Token: ')
+    alien.login(session_token)
