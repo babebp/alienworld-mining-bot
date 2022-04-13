@@ -27,7 +27,6 @@ class AlienWorld:
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[3]/div/div[1]/div/div/div")))
         self.driver.find_element(by=By.XPATH, value='/html/body/div/div[3]/div/div[1]/div/div/div').click()
 
-
     def approve(self):
         try:
             time.sleep(5)
