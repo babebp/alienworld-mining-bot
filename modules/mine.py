@@ -14,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class AlienWorld:
-    options = webdriver.ChromeOptions()
+    
     def __init__(self, ):
         self.driver = webdriver.Chrome(executable_path=r"C:\Users\user\Projects\main_project\aw_bot_\chromedriver.exe")
         
