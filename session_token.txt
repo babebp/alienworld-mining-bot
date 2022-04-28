@@ -1,0 +1,1 @@
+session_token -> You can get it from https://all-access.wax.io/api/session **Put your session_token in this line**
